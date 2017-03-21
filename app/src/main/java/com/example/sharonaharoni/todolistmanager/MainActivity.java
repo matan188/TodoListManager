@@ -39,9 +39,7 @@ public class MainActivity extends AppCompatActivity {
 
         /* Initialize list of items and adapter */
         listItems = new ArrayList<>();
-        for (int i=0; i < 10; i++) {
-            listItems.add("item " + Integer.toString(i));
-        }
+
         /* Override getView to alternate text color */
         arrayAdapter = new ArrayAdapter<String>(this, R.layout.my_layout, listItems) {
             @NonNull
@@ -58,6 +56,7 @@ public class MainActivity extends AppCompatActivity {
             }
         };
 
+        /* Initialize listView */
         listView = (ListView) findViewById(R.id.listView);
         listView.setAdapter(arrayAdapter);
 
@@ -108,6 +107,7 @@ public class MainActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
+    /* Method to Remove Item from List */ 
     public void removeElement(String selectedItem, final int position) {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle(selectedItem);
@@ -127,6 +127,7 @@ public class MainActivity extends AppCompatActivity {
         builder.show();
     }
 
+    /* Method to add Item to list */
     private void addItemToList() {
         EditText editText = (EditText) findViewById(R.id.editText);
         String newItem = editText.getText().toString();
