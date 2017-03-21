@@ -24,6 +24,7 @@ import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
+    static final String STATE_LIST = "stringList";
     private ListView listView;
     private ArrayAdapter<String> arrayAdapter;
     private ArrayList<String> listItems;
@@ -37,8 +38,13 @@ public class MainActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
 
-        /* Initialize list of items and adapter */
-        listItems = new ArrayList<>();
+        /* Reinitialize list from screen rotation, else new list */
+        if (savedInstanceState != null) {
+            listItems = savedInstanceState.getStringArrayList(STATE_LIST);
+        } else {
+            listItems = new ArrayList<>();
+        }
+
 
         /* Override getView to alternate text color */
         arrayAdapter = new ArrayAdapter<String>(this, R.layout.my_layout, listItems) {
@@ -81,6 +87,14 @@ public class MainActivity extends AppCompatActivity {
                 addItemToList();
             }
         });
+    }
+
+    /* Save list data when screen rotates */
+    @Override
+    public void onSaveInstanceState(Bundle savedInstanceState) {
+        savedInstanceState.putStringArrayList(STATE_LIST, listItems);
+
+        super.onSaveInstanceState(savedInstanceState);
     }
 
     @Override
