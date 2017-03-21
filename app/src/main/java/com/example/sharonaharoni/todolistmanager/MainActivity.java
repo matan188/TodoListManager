@@ -39,7 +39,7 @@ public class MainActivity extends AppCompatActivity {
 
         /* Initialize list of items and adapter */
         listItems = new ArrayList<>();
-        for (int i=0; i < 20; i++) {
+        for (int i=0; i < 10; i++) {
             listItems.add("item " + Integer.toString(i));
         }
         /* Override getView to alternate text color */
@@ -79,12 +79,7 @@ public class MainActivity extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                EditText editText = (EditText) findViewById(R.id.editText);
-                String newItem = editText.getText().toString();
-                listItems.add(newItem);
-                arrayAdapter.notifyDataSetChanged();
-                listView.setAdapter(arrayAdapter);
-                editText.setText("");
+                addItemToList();
             }
         });
     }
@@ -104,7 +99,9 @@ public class MainActivity extends AppCompatActivity {
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
+        if (id == R.id.action_add) {
+            addItemToList();
+
             return true;
         }
 
@@ -128,5 +125,14 @@ public class MainActivity extends AppCompatActivity {
             }
         });
         builder.show();
+    }
+
+    private void addItemToList() {
+        EditText editText = (EditText) findViewById(R.id.editText);
+        String newItem = editText.getText().toString();
+        listItems.add(newItem);
+        arrayAdapter.notifyDataSetChanged();
+        listView.setAdapter(arrayAdapter);
+        editText.setText("");
     }
 }
