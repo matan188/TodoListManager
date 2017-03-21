@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        is-multidex="true"
+        jar="/Users/sharonaharoni/AndroidStudioProjects/TodoListManager/app/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="f44b522d3dcf7a30f504ba04cb5e5f7f933621c7">
+        <dex dex="/Users/sharonaharoni/AndroidStudioProjects/TodoListManager/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run-bootstrap_a0e6d4b063e821b67c714bf1af22861904e492f7/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/sharonaharoni/AndroidStudioProjects/TodoListManager/app/build/intermediates/incremental-runtime-classes/debug/instant-run.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="c82741bc129dd5f99f11a4ab8666ae24262053b6">
+        <dex dex="/Users/sharonaharoni/AndroidStudioProjects/TodoListManager/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run_d239b58f8214c0101c6aa618bd07993502991397/classes.dex" />
+    </item>
+
+</items>
